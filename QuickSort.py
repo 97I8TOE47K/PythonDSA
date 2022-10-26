@@ -6,10 +6,10 @@ def swap_func(a,b):
 
 """This is the Hoare_Partition Technique. For further information consider the attached Quicksort.pdf file."""
 def Hoare_Partition(arr,left_ptr,right_ptr):
-    
+
     #The Pivot element is always chosen as the first element of the array
     pivot_element = arr[left_ptr]
-    
+
     #The pointers are initially set outside the left and rightmost index.
     i = left_ptr - 1
     j= right_ptr + 1
@@ -19,14 +19,14 @@ def Hoare_Partition(arr,left_ptr,right_ptr):
         i = i + 1
         while(arr[i] < pivot_element):
             i = i + 1
-        
+
         j = j - 1
         while(arr[j] > pivot_element):
             j = j - 1
-        
+
         if(i >= j):
             return j
-        
+
         arr[i],arr[j] = swap_func(arr[i],arr[j])
 
 

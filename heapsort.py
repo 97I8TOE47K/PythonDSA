@@ -23,10 +23,7 @@ def build_max_heap(list):
 def max_heapify(list, index, size):
     l = left(index) #left child of index
     r = right(index)    #Right child of index
-    if (l < size and list[l] > list[index]):
-        largest = l #define left child as largest if it is greater than it's parent
-    else:
-        largest = index
+    largest = l if (l < size and list[l] > list[index]) else index
     if (r < size and list[r] > list[largest]):
         largest = r #define right child as largest if it is greater than it's parent
     if (largest != index):

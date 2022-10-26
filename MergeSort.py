@@ -13,30 +13,27 @@ def merge_two(arr,left,middle,right):
         left_array.append(arr[left+i])
     for j in range(size2):
         right_array.append(arr[middle+1+j])
-    
+
     i,j,k = 0,0,left
 
-    while(i<size1 and j<size2):
-        if(left_array[i] <= right_array[j]):
+    while (i<size1 and j<size2):
+        if (left_array[i] <= right_array[j]):
             arr[k] = left_array[i]
-            i = i+1
-            k = k+1
-            count = count+1
+            i += 1
         else:
             arr[k] = right_array[j]
-            j = j+1
-            k = k+1
-            count = count+1
-
-    while(i < size1):
+            j += 1
+        count = count+1
+        k = k+1
+    while (i < size1):
         arr[k] = left_array[i]
-        i = i+1
+        i += 1
         k = k+1
         count = count+1
-    
-    while(j < size2):
+
+    while (j < size2):
         arr[k] = right_array[j]
-        j = j+1
+        j += 1
         k = k+1
         count = count+1
 

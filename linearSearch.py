@@ -1,8 +1,5 @@
 def linearSearch(lst, key):
-    for i in range(len(lst)):   #traversing the list from front to end and evaluating each entry
-        if lst[i] == key:   #if an entry is found to be equal to the supplied key
-            return i    #the position of that element is returned
-    return -1   #if no element is equal to the supplied key then a default value of -1 is returned
+    return next((i for i in range(len(lst)) if lst[i] == key), -1)
 
 if __name__ == "__main__":
     #we are using list comprehension to get the input for the list from user. here we are using the input statement to get the string input from the user

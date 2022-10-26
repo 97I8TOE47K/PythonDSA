@@ -29,10 +29,7 @@ def build_max_heap(list):
 def max_heapify(list, index, size):
     l = left(index) #left child of index
     r = right(index)    #Right child of index
-    if (l < size and list[l] > list[index]):
-        largest = l #define left child as largest if it is greater than it's parent
-    else:
-        largest = index
+    largest = l if (l < size and list[l] > list[index]) else index
     if (r < size and list[r] > list[largest]):
         largest = r #define right child as largest if it is greater than it's parent
     if (largest != index):
@@ -42,11 +39,9 @@ def max_heapify(list, index, size):
 def interPolationSearch(arr, lo, hi, key):
     global iterationCount
     iterationCount += 1  #update iterationCount everytime the function is called
-    if (lo <= hi and key >= arr[lo] and key <= arr[hi]):    #if the lower bound of the array is lower than the upper bound & the key can be present in the array
+    if (lo <= hi and key >= arr[lo] and key <= arr[hi]):#if the lower bound of the array is lower than the upper bound & the key can be present in the array
         if lo == hi:    #if the lower and upper bound of the list is same ie the length of the portion of that array is 1
-            if key == arr[lo]:  #if the key is present in that array segment
-                return lo   #return the position
-            return -1   #if the key is not present in that portion it implies that it is not present in the array hence return -1
+            return lo if key == arr[lo] else -1
         #calculate the optimal position to search for the key based on the 
         #rate of increase of the data in the input array and the difference of the key from the smallest value in the array
         pos = lo + ((hi - lo) // (arr[hi] - arr[lo])) * (key - arr[lo])

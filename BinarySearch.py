@@ -39,15 +39,13 @@ def bin_search_iteration(arr,left,right,element):
 if __name__ == "__main__":
     arr = []
 
-    while(True):
+    while True:
         temp = int(input("Enter Value : "))
         arr.append(temp)
         choice = input("Enter Y/y to continue or N/n to exit : ")
-        if(choice == 'Y' or choice == 'y'):
-            continue
-        else:
+        if choice not in ['Y', 'y']:
             break
-    
+
     print("\nEntered array : ",arr)
     print("For the Binary Search to work,the array needs to be sorted.")
     arr = sorted(arr) #sorting the array in ascending order

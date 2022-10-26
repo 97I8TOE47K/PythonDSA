@@ -7,13 +7,13 @@ def countingSort(arr, exp1):
     output = [0] * (n)
     count = [0] * (10)
 
-    for i in range(0,n):
+    for i in range(n):
         index = arr[i] // exp1
         count[index%10] = count[index%10] + 1
-    
+
     for i in range(1,10):
         count[i] = count[i] + count[i-1]
-    
+
     i =  n - 1
     while i>=0:
         index = arr[i] // exp1
@@ -22,7 +22,7 @@ def countingSort(arr, exp1):
         i = i - 1
 
     i = 0
-    for i in range(0,len(arr)):
+    for i in range(len(arr)):
         arr[i] = output[i]
 
 def radixSort(arr):
@@ -40,20 +40,18 @@ def radixSort(arr):
         countingSort(arr,exp_track)
         print("After Pass ",count," -->> ",arr)
         count = count + 1
-        exp_track = exp_track * 10
+        exp_track *= 10
 
-if __name__ == "__main__" : 
+if __name__ == "__main__": 
     arr = []
 
-    while(True):
+    while True:
         temp = int(input("Enter Value : "))
         arr.append(temp)
         choice = input("Enter Y/y to continue or N/n to exit : ")
-        if(choice == 'Y' or choice == 'y'):
-            continue
-        else:
+        if choice not in ['Y', 'y']:
             break
-    
+
     print("\nEntered array : ",arr)
 
     radixSort(arr)
